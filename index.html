@@ -1,9 +1,41 @@
-<!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml">
-    <head profile="http://www.w3.org/2005/10/profile">
-        <title>Test page </title>
-    </head>
-    <body>
-        This is rockin' in the cloud!
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>My Google API Application</title>
+    <script src="https://www.google.com/jsapi?key=ABQIAAAApoD6Z0XRmHx__N-ZJQsjjxQ94jpXUTagLPXbcZbGmWXiDkNRMxS7_f7UiBeTe9VVAOPKkJfgofHsQA" type="text/javascript"></script>
+    <script language="Javascript" type="text/javascript">
+    //<![CDATA[
+
+    google.load("search", "1");
+    google.load("prototype", "1.7.0.0");
+    google.load("scriptaculous", "1.9.0");
+
+    function init() {
+      // Create a search control
+      var searchControl = new google.search.SearchControl();
+
+      // Add in a full set of searchers
+      var localSearch = new google.search.LocalSearch();
+      searchControl.addSearcher(localSearch);
+      searchControl.addSearcher(new google.search.WebSearch());
+      searchControl.addSearcher(new google.search.VideoSearch());
+      searchControl.addSearcher(new google.search.BlogSearch());
+
+      // Set the Local Search center point
+      localSearch.setCenterPoint("New York, NY");
+
+      // Tell the searcher to draw itself and tell it where to attach
+      searchControl.draw(document.getElementById("searchcontrol"));
+
+      // Execute an inital search
+      searchControl.execute("Google");
+    }
+    google.setOnLoadCallback(init);
+
+    //]]>
+    </script>
+  </head>
+  <body>
+    <div id="searchcontrol">Loading...</div>
+  </body>
 </html>
