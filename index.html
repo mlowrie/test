@@ -1,27 +1,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <style type="text/css">
+        #red, #green, #blue {
+		float: left;
+		clear: left;
+		width: 300px;
+		margin: 15px;
+	}
+	#swatch {
+		width: 120px;
+		height: 100px;
+		margin-top: 18px;
+		margin-left: 350px;
+		background-image: none;
+	}
+	#red .ui-slider-range { background: #ef2929; }
+	#red .ui-slider-handle { border-color: #ef2929; }
+	#green .ui-slider-range { background: #8ae234; }
+	#green .ui-slider-handle { border-color: #8ae234; }
+	#blue .ui-slider-range { background: #729fcf; }
+	#blue .ui-slider-handle { border-color: #729fcf; }
+	#demo-frame > div.demo { padding: 10px !important; };
+    </style>
     <title>My Google API Application</title>
     <script src="https://www.google.com/jsapi?key=ABQIAAAApoD6Z0XRmHx__N-ZJQsjjxQ94jpXUTagLPXbcZbGmWXiDkNRMxS7_f7UiBeTe9VVAOPKkJfgofHsQA" type="text/javascript"></script>
+    <!--
+       API key for c9.io/mattlowrie
+       script src="https://www.google.com/jsapi?key=ABQIAAAApoD6Z0XRmHx__N-ZJQsjjxSVrRJEiU4pRgw9E-VP8SeZ9mVALBTPvGlKI8QJ2eUDGvC86tI0U9c6fw" type="text/javascript"></script>
+    -->
     <script language="Javascript" type="text/javascript">
     //<![CDATA[
 
-    google.load("search", "1");
-    google.load("prototype", "1.7.0.0");
-    google.load("scriptaculous", "1.9.0");
-
-    function init() {
-        var foo = 1;
-        var c = new Control.Slider($('#zoom'), $('.handle'), {});
-    }
+    google.load("jquery", "1.7.1");
+    google.load("jqueryui", "1.8.16");
+    function init() { }
     google.setOnLoadCallback(init);
 
     //]]>
     </script>
   </head>
   <body>
-    <div id="zoom" class="slider">
-        <div class="handle"></div>
-    </div>
+    <div id="example"></div>
+    <script>
+    $('#example').slider();
+    </script>
   </body>
 </html>
